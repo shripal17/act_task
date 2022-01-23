@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_scrolling_fab_animated/flutter_scrolling_fab_animated.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
+/// This screen shows the details of a training
 class TrainingDetailScreen extends StatelessWidget {
   final TrainingItem trainingItem;
 
@@ -58,78 +59,80 @@ class TrainingDetailScreen extends StatelessWidget {
             ),
           ),
         ],
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                childAspectRatio: 4,
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                children: [
-                  _DetailItem(
-                    detail: Text(trainingItem.date, style: const TextStyle(fontSize: 16, color: Colors.black)),
-                    icon: const Icon(Icons.calendar_today),
-                  ),
-                  _DetailItem(
-                    detail: Text(
-                      trainingItem.location.toString(),
-                      style: const TextStyle(fontSize: 16, color: Colors.black),
-                      textAlign: TextAlign.end,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
+                  childAspectRatio: 4,
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  children: [
+                    _DetailItem(
+                      detail: Text(trainingItem.date, style: const TextStyle(fontSize: 16, color: Colors.black)),
+                      icon: const Icon(Icons.calendar_today),
                     ),
-                    icon: const Icon(Icons.location_pin),
-                    listTileControlAffinity: ListTileControlAffinity.trailing,
-                  ),
-                  _DetailItem(
-                    detail: Text(trainingItem.time, style: const TextStyle(fontSize: 16, color: Colors.black)),
-                    icon: const Icon(Icons.watch_later_outlined),
-                  ),
-                  _DetailItem(
-                    detail: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "${trainingItem.price?.currency}${trainingItem.price?.originalPrice}",
-                          style: const TextStyle(decoration: TextDecoration.lineThrough, fontSize: 12, fontWeight: FontWeight.w300),
-                        ),
-                        const SizedBox(width: 8),
-                        Text("${trainingItem.price?.currency}${trainingItem.price?.discountedPrice}", style: const TextStyle(fontSize: 16, color: Colors.black)),
-                      ],
+                    _DetailItem(
+                      detail: Text(
+                        trainingItem.location.toString(),
+                        style: const TextStyle(fontSize: 16, color: Colors.black),
+                        textAlign: TextAlign.end,
+                      ),
+                      icon: const Icon(Icons.location_pin),
+                      listTileControlAffinity: ListTileControlAffinity.trailing,
                     ),
-                    icon: const Icon(Icons.money),
-                    listTileControlAffinity: ListTileControlAffinity.trailing,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  if (trainingItem.trainerInfo.profileImage != null) ...{
-                    CircleAvatar(backgroundImage: PlatformCachedNetworkImageProvider(trainingItem.trainerInfo.profileImage!), radius: 24),
-                    const SizedBox(width: 8),
-                  },
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text("Keynote Speaker", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
-                        const SizedBox(height: 2),
-                        Text(trainingItem.trainerInfo.name, style: const TextStyle(fontSize: 14, color: Colors.black87)),
-                      ],
+                    _DetailItem(
+                      detail: Text(trainingItem.time, style: const TextStyle(fontSize: 16, color: Colors.black)),
+                      icon: const Icon(Icons.watch_later_outlined),
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(height: 16),
-              Text(trainingItem.summary ?? 'No Summary Available'),
-            ],
+                    _DetailItem(
+                      detail: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "${trainingItem.price?.currency}${trainingItem.price?.originalPrice}",
+                            style: const TextStyle(decoration: TextDecoration.lineThrough, fontSize: 12, fontWeight: FontWeight.w300),
+                          ),
+                          const SizedBox(width: 8),
+                          Text("${trainingItem.price?.currency}${trainingItem.price?.discountedPrice}", style: const TextStyle(fontSize: 16, color: Colors.black)),
+                        ],
+                      ),
+                      icon: const Icon(Icons.money),
+                      listTileControlAffinity: ListTileControlAffinity.trailing,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    if (trainingItem.trainerInfo.profileImage != null) ...{
+                      CircleAvatar(backgroundImage: PlatformCachedNetworkImageProvider(trainingItem.trainerInfo.profileImage!), radius: 24),
+                      const SizedBox(width: 8),
+                    },
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Text("Keynote Speaker", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black)),
+                          const SizedBox(height: 2),
+                          Text(trainingItem.trainerInfo.name, style: const TextStyle(fontSize: 14, color: Colors.black87)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 16),
+                Text(trainingItem.summary ?? 'No Summary Available'),
+              ],
+            ),
           ),
         ),
       ),

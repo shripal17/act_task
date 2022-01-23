@@ -13,22 +13,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'ACT Task',
       navigatorKey: RM.navigate.navigatorKey,
       theme: ThemeData(
         primarySwatch: const MaterialColor(
           0xFFFF4855,
           {
-            50: Color(0xFFFF4855),
-            100: Color(0xFFFF4855),
-            200: Color(0xFFFF4855),
-            300: Color(0xFFFF4855),
-            400: Color(0xFFFF4855),
-            500: Color(0xFFFF4855),
-            600: Color(0xFFFF4855),
-            700: Color(0xFFFF4855),
-            800: Color(0xFFFF4855),
-            900: Color(0xFFFF4855),
+            50: AppColors.accent,
+            100: AppColors.accent,
+            200: AppColors.accent,
+            300: AppColors.accent,
+            400: AppColors.accent,
+            500: AppColors.accent,
+            600: AppColors.accent,
+            700: AppColors.accent,
+            800: AppColors.accent,
+            900: AppColors.accent,
           },
         ),
       ),

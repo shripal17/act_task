@@ -1,16 +1,19 @@
-# act_task
+# Sample Task for ACT
 
 Sample Task for ACT
 
-## Getting Started
+## Target
 
-This project is a starting point for a Flutter application.
+See (Details)[task_details.pdf]
 
-A few resources to get you started if this is your first Flutter project:
+## Running
+You need to have Flutter SDK in your computer, with it's executable path (bin folder) added in your terminal's path
+Then,
+1. `flutter pub get`
+2. `flutter run`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This app can be run on Android/iOS/Web
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demo
+A Screen record can be found at (this GDrive Link)[https://drive.google.com/file/d/118ZFwwds1tvQ67kw8supu1CnwIoTsOHK/view?usp=sharing]
+[screenshot.png]
